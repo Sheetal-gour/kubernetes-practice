@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flask-ingress
+  # namespace: eks-sample-app
+  labels:
+    name: flask-ingress
+spec:
+  rules:
+  - host: employee.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: flask-service 
+            port: 
+              number: 80
